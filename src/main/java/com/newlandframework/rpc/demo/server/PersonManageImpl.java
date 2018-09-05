@@ -1,19 +1,19 @@
 package com.newlandframework.rpc.demo.server;
 
+import com.newlandframework.rpc.spring.annotation.NettyRPCReferer;
+import com.newlandframework.rpc.spring.annotation.NettyRPCService;
 import com.newlandframework.rpc.demo.model.Person;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Title:NettyRPC
  * description:
- * Company: 北京华宇元典信息服务有限公司
  *
  * @author: Lijiaqi
  * @version: 1.0
  * @create: 2018-09-04 15:02
  **/
 
+@NettyRPCService
 public class PersonManageImpl implements PersonManage {
 //    private static final Logger logger = LoggerFactory.getLogger(PersonManageImpl.class);
     @Override

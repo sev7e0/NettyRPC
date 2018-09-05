@@ -3,7 +3,6 @@ package com.newlandframework.rpc.demo.model;
 /**
  * Title:NettyRPC
  * description:
- * Company: 北京华宇元典信息服务有限公司
  *
  * @author: Lijiaqi
  * @version: 1.0
