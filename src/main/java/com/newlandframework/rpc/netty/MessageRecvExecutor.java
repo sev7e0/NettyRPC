@@ -22,6 +22,7 @@ import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 
 import com.newlandframework.rpc.jmx.ModuleMetricsHandler;
+import com.newlandframework.rpc.spring.annotation.NettyRPCRefererProcessor;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -35,13 +36,7 @@ import java.nio.channels.spi.SelectorProvider;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.*;
 import java.util.logging.Level;
 
 import com.newlandframework.rpc.core.RpcSystemConfig;
@@ -55,6 +50,7 @@ import com.newlandframework.rpc.compiler.AccessAdaptiveProvider;
 import com.newlandframework.rpc.core.AbilityDetailProvider;
 import com.newlandframework.rpc.netty.resolver.ApiEchoResolver;
 
+import javafx.concurrent.Task;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -138,6 +134,11 @@ public class MessageRecvExecutor implements ApplicationContextAware {
                 entry = it.next();
                 handlerMap.put(entry.getKey(), entry.getValue());
             }
+            //将注解形式的id与实现类映射存入到handlerMap中去
+            Set<Map.Entry<String, Object>> entries = NettyRPCRefererProcessor.map.entrySet();
+            for (Map.Entry<String, Object> entry1 : entries) {
+                handlerMap.put(entry1.getKey(), entry1.getValue());
+            }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(MessageRecvExecutor.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -165,6 +166,8 @@ public class MessageRecvExecutor implements ApplicationContextAware {
                         if (channelFuture.isSuccess()) {
                             final ExecutorService executor = Executors.newFixedThreadPool(numberOfEchoThreadsPool);
                             ExecutorCompletionService<Boolean> completionService = new ExecutorCompletionService<Boolean>(executor);
+//                            FutureTask<Boolean> task = new FutureTask<>(new ApiEchoResolver(host, echoApiPort));
+//                            executor.submit(task);
                             completionService.submit(new ApiEchoResolver(host, echoApiPort));
                             System.out.printf("[author tangjie] Netty RPC Server start success!\nip:%s\nport:%d\nprotocol:%s\nstart-time:%s\njmx-invoke-metrics:%s\n\n", host, port, serializeProtocol, ModuleMetricsHandler.getStartTime(), (RpcSystemConfig.SYSTEM_PROPERTY_JMX_METRICS_SUPPORT ? "open" : "close"));
                             channelFuture.channel().closeFuture().sync().addListener(new ChannelFutureListener() {

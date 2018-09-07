@@ -33,12 +33,12 @@ import java.io.Reader;
  */
 public class NettyRpcNamespaceHandler extends NamespaceHandlerSupport {
     static {
-        Resource resource = new ClassPathResource("NettyRPC-logo.txt");
+        Resource resource = new ClassPathResource("../NettyRPC-logo.txt");
         if (resource.exists()) {
             try {
                 Reader reader = new InputStreamReader(resource.getInputStream(), "UTF-8");
                 String text = CharStreams.toString(reader);
-                System.out.println(text);
+//                System.out.println(text);
                 reader.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -50,7 +50,7 @@ public class NettyRpcNamespaceHandler extends NamespaceHandlerSupport {
             System.out.println("| |\\ |||  \\    / \\   / \\   \\  / |  \\/||  \\/||  /  ");
             System.out.println("| | \\|||  /_   | |   | |   / /  |    /|  __/|  \\_ ");
             System.out.println("\\_/  \\|\\____\\  \\_/   \\_/  /_/   \\_/\\_\\\\_/   \\____/");
-            System.out.println("[NettyRPC 2.0,Build 2016/10/7,Author:tangjie http://www.cnblogs.com/jietang/]");
+//            System.out.println("[NettyRPC 2.0,Build 2016/10/7,Author:tangjie http://www.cnblogs.com/jietang/]");
             System.out.println("");
         }
     }

@@ -40,7 +40,7 @@
     <bean id="cacheService" class="com.newlandframework.rpc.services.impl.CacheImpl"></bean>
     <bean id="storeService" class="com.newlandframework.rpc.services.impl.StoreImpl"></bean>
 
-    <!--注入对象-->
+    <!---->
     <bean id="myManageService" class="com.newlandframework.rpc.demo.server.PersonManageImpl"></bean>
 
     <bean id="simpleFilter" class="com.newlandframework.rpc.filter.support.SimpleFilter"></bean>
@@ -69,5 +69,6 @@
     <bean id="listenerAdapter" class="com.newlandframework.rpc.listener.support.ModuleListenerAdapter"/>
     <!--FilterChain-->
     <bean id="classLoaderChainFilter" class="com.newlandframework.rpc.filter.support.ClassLoaderChainFilter"/>
+
     <bean id="echoChainFilter" class="com.newlandframework.rpc.filter.support.EchoChainFilter"/>
 </beans>
