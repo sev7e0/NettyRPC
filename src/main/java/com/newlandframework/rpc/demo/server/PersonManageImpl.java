@@ -13,7 +13,7 @@ import com.newlandframework.rpc.demo.model.Person;
  * @create: 2018-09-04 15:02
  **/
 
-@NettyRPCService
+@NettyRPCReferer(interfaceName = "PersonManageImpl")
 public class PersonManageImpl implements PersonManage {
 //    private static final Logger logger = LoggerFactory.getLogger(PersonManageImpl.class);
     @Override

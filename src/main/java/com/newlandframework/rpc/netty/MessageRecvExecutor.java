@@ -50,7 +50,6 @@ import com.newlandframework.rpc.compiler.AccessAdaptiveProvider;
 import com.newlandframework.rpc.core.AbilityDetailProvider;
 import com.newlandframework.rpc.netty.resolver.ApiEchoResolver;
 
-import javafx.concurrent.Task;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
