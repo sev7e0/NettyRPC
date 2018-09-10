@@ -13,8 +13,7 @@
                       ref="calcAddService"></nettyrpc:service>
     <nettyrpc:service id="demoMultiService" interfaceName="com.newlandframework.rpc.services.MultiCalculate"
                       ref="calcMultiService"></nettyrpc:service>
-    <nettyrpc:service id="demoPersonManage" interfaceName="com.newlandframework.rpc.services.PersonManage"
-                      ref="personManageService"></nettyrpc:service>
+
     <nettyrpc:service id="demoCostTime" interfaceName="com.newlandframework.rpc.services.CostTimeCalculate"
                       ref="costTimeCalculateService"></nettyrpc:service>
 
@@ -25,8 +24,8 @@
                       ref="storeService" filter="simpleFilter"></nettyrpc:service>
 
     <!--注册RPC服务端接口-->
-    <nettyrpc:service id="PersonManage" interfaceName="com.newlandframework.rpc.demo.server.PersonManage"
-                      ref="myManageService"></nettyrpc:service>
+    <!--<nettyrpc:service id="PersonManage" interfaceName="com.newlandframework.rpc.demo.server.PersonManage"-->
+                      <!--ref="myManageService"></nettyrpc:service>-->
 
 
     <nettyrpc:registry id="rpcRegistry" ipAddr="${rpc.server.addr}" echoApiPort="${rpc.server.echo.api.port}"

@@ -51,7 +51,11 @@ public class HashMessageRecvInitializeTask extends AbstractMessageRecvInitialize
 
     @Override
     protected void injectInvoke() {
-        Class cls = handlerMap.get(request.getClassName()).getClass();
+        Object obj = handlerMap.get(request.getClassName());
+        if (obj == null){
+            throw new RuntimeException(request.getClassName()+" is undefined");
+        }
+        Class cls = obj.getClass();
         boolean binder = ServiceFilterBinder.class.isAssignableFrom(cls);
         if (binder) {
             cls = ((ServiceFilterBinder) handlerMap.get(request.getClassName())).getObject().getClass();

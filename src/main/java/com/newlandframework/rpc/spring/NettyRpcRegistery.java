@@ -62,12 +62,12 @@ public class NettyRpcRegistery implements InitializingBean, DisposableBean {
 
         ref.start();
 
-        if (RpcSystemConfig.SYSTEM_PROPERTY_JMX_METRICS_SUPPORT) {
-            HashModuleMetricsVisitor visitor = HashModuleMetricsVisitor.getInstance();
-            visitor.signal();
-            ModuleMetricsHandler handler = ModuleMetricsHandler.getInstance();
-            handler.start();
-        }
+//        if (RpcSystemConfig.SYSTEM_PROPERTY_JMX_METRICS_SUPPORT) {
+//            HashModuleMetricsVisitor visitor = HashModuleMetricsVisitor.getInstance();
+//            visitor.signal();
+//            ModuleMetricsHandler handler = ModuleMetricsHandler.getInstance();
+//            handler.start();
+//        }
     }
 
     public String getIpAddr() {

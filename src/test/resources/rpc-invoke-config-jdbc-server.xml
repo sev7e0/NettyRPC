@@ -11,8 +11,8 @@
                       ref="calcAddService"></nettyrpc:service>
     <nettyrpc:service id="demoMultiService" interfaceName="com.newlandframework.rpc.services.MultiCalculate"
                       ref="calcMultiService"></nettyrpc:service>
-    <nettyrpc:service id="demoPersonManage" interfaceName="com.newlandframework.rpc.services.PersonManage"
-                      ref="personManageService"></nettyrpc:service>
+    <!--<nettyrpc:service id="demoPersonManage" interfaceName="com.newlandframework.rpc.services.PersonManage"-->
+                      <!--ref="personManageService"></nettyrpc:service>-->
     <nettyrpc:service id="demoPersonManageJdbc" interfaceName="com.newlandframework.rpc.services.JdbcPersonManage"
                       ref="personManageServiceJdbc"></nettyrpc:service>
     <nettyrpc:service id="demoCostTime" interfaceName="com.newlandframework.rpc.services.CostTimeCalculate"

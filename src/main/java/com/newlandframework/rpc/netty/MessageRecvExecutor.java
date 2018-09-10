@@ -133,11 +133,11 @@ public class MessageRecvExecutor implements ApplicationContextAware {
                 entry = it.next();
                 handlerMap.put(entry.getKey(), entry.getValue());
             }
-            //将注解形式的id与实现类映射存入到handlerMap中去
-            Set<Map.Entry<String, Object>> entries = NettyRPCRefererProcessor.map.entrySet();
-            for (Map.Entry<String, Object> entry1 : entries) {
-                handlerMap.put(entry1.getKey(), entry1.getValue());
-            }
+//            //将注解形式的id与实现类映射存入到handlerMap中去
+//            Set<Map.Entry<String, Object>> entries = NettyRPCRefererProcessor.map.entrySet();
+//            for (Map.Entry<String, Object> entry1 : entries) {
+//                handlerMap.put(entry1.getKey(), entry1.getValue());
+//            }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(MessageRecvExecutor.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -16,6 +16,7 @@
 package com.newlandframework.rpc.services.impl;
 
 import com.newlandframework.rpc.services.AddCalculate;
+import com.newlandframework.rpc.spring.annotation.NettyRPCService;
 
 /**
  * @author tangjie<https://github.com/tang-jie>
@@ -24,6 +25,7 @@ import com.newlandframework.rpc.services.AddCalculate;
  * @blogs http://www.cnblogs.com/jietang/
  * @since 2016/10/7
  */
+//@NettyRPCService(interfaceName = "com.newlandframework.rpc.services.AddCalculate", ref="calcAddService")
 public class AddCalculateImpl implements AddCalculate {
     //两数相加
     @Override

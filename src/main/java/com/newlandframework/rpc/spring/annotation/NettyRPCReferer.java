@@ -19,6 +19,8 @@ import java.lang.annotation.*;
 @Component
 public @interface NettyRPCReferer {
 
+    Class<?> interfaceClass() default void.class;
+
     String id() default "";
 
     String interfaceName() default "" ;
